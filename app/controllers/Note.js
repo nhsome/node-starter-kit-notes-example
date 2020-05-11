@@ -38,6 +38,11 @@ class Note extends Controller {
 
   async update(req) {
     let note = await this.models.Note.findByPk(req.params.id)
+
+    if (!note) throw new HttpError(400, 'Not found note')
+    if (req.user.role !== Roles.ADMIN && note.CreatorId !== req.user.id)
+      throw new HttpError(403, 'You don\'t have permissions for update this note')
+
     note = await this.services.dao.note.update(note, { ...req.body, CreatorId: req.user.id })
     return { result: 'success', note }
   }
