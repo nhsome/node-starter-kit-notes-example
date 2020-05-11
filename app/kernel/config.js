@@ -28,13 +28,18 @@ module.exports = {
   rabbit: {
     connectionString: process.env.RABBIT_CONNECTION_STRING,
     queues: {
-      /*
-       * someQueue: { name: 'some-queue', prefetch: 5 }
-       */
+      emails: {
+        name: process.env.RABBIT_EMAILS_QUEUE_NAME || 'emails',
+        prefetch: Number(process.env.RABBIT_EMAILS_QUEUE_PREFETCH) || 1
+      }
     }
   },
   jwt: {
     secret: process.env.JWT_SECRET,
     maxAge: Number(process.env.JWT_MAX_AGE) || 3600 * 24
+  },
+  smtp: {
+    connectionString: process.env.SMTP_CONNECTION_STRING,
+    from: process.env.SMTP_FROM
   }
 }

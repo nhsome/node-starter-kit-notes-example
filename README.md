@@ -1,4 +1,4 @@
-## Node Starter Kit
+## Node Starter Kit Notes Example
 
 **Requirements:**
 

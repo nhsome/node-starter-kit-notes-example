@@ -1,8 +1,8 @@
 const COMMANDS_DIR = '../commands'
 
 module.exports = {
-  // 'command-name': {
-  //   module: require(`${ COMMANDS_DIR }/CommandClass`),
-  //   description: 'This command do something'
-  // }
+  'send-reminders': {
+    module: require(`${ COMMANDS_DIR }/SendReminders`),
+    description: 'Send reminders to users via email'
+  }
 }

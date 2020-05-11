@@ -4,7 +4,8 @@ const RabbitHelper = require('./RabbitHelper'),
   PasswordHash = require('./PasswordHash'),
   AuthJwt = require('./AuthJwt'),
   daoInit = require('./dao'),
-  RequestsLogger = require('./RequestsLogger')
+  RequestsLogger = require('./RequestsLogger'),
+  SmtpProvider = require('./SmtpProvider')
 
 module.exports = function(config, models, rabbitConnection, logger) {
   const passwordHash = new PasswordHash(config.passwordsSaltRounds)
@@ -14,6 +15,7 @@ module.exports = function(config, models, rabbitConnection, logger) {
     rabbitHelper: new RabbitHelper(rabbitConnection),
     passwordHash,
     authJwt: new AuthJwt(config.jwt.secret, config.jwt.maxAge),
-    requestsLogger: new RequestsLogger(models)
+    requestsLogger: new RequestsLogger(models),
+    smtpProvider: new SmtpProvider(config.smtp.connectionString, config.smtp.from)
   }
 }

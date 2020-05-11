@@ -68,5 +68,31 @@ module.exports = [
     log: true,
     logBody: false,
     logSuccessResult: false
-  }
+  },
+  // Show notes
+  {
+    path: '/notes',
+    method: 'get',
+    controller: 'Note',
+    action: 'show',
+    accessible: ALL_ROLES
+  },
+  // Create note
+  {
+    path: '/note',
+    method: 'post',
+    controller: 'Note',
+    action: 'create',
+    accessible: ALL_ROLES,
+    log: true
+  },
+  // Update note
+  {
+    path: '/note/:id',
+    method: 'put',
+    controller: 'Note',
+    action: 'update',
+    accessible: ALL_ROLES,
+    log: true
+  },
 ]

@@ -66,14 +66,6 @@
                     "field": "remindAt",
                     "seqType": "Sequelize.DATE"
                 },
-                "sent": {
-                    "allowNull": false,
-                    "defaultValue": {
-                        "value": false
-                    },
-                    "field": "sent",
-                    "seqType": "Sequelize.BOOLEAN"
-                },
                 "deleted": {
                     "allowNull": false,
                     "defaultValue": {
@@ -234,5 +226,5 @@
             "indexes": []
         }
     },
-    "revision": 3
+    "revision": 2
 }
