@@ -7,7 +7,13 @@ class Note extends Controller {
     const options = {
       ...Controller._getDefaultShowOptions(req),
       distinct: true,
-      include: [ this.models.Reminder ]
+      include: [
+        {
+          model: this.models.Reminder,
+          required: false,
+          where: { deleted: false }
+        }
+      ]
     }
     if (req.query.CreatorId && req.user.role !== Roles.ADMIN) {
       throw new HttpError('CreatorId parameter can be provided only by Admin')
