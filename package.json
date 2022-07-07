@@ -22,7 +22,7 @@
     "jsonwebtoken": "^8.5.1",
     "lodash": "^4.17.15",
     "minimist": "^1.2.5",
-    "moment": "^2.25.1",
+    "moment": "^2.29.4",
     "nodemailer": "^6.4.6",
     "pg": "^8.0.3",
     "rand-token": "^1.0.1",
